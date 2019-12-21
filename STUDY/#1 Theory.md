@@ -129,7 +129,7 @@
 
   - 변수를 선언이나 초기화 할 때, let/var 작성.
 
-    - let: 
+    - **let**
 
   - Create -> Initialize -> Use
 
@@ -140,7 +140,143 @@
     console.log(b, a);
     ```
 
-  - 
+
+
+### # let, const, var
+
+- 변수의 값을 바꾸고 싶지 않을 때, const 사용
+
+- **const**는 constant, 즉 상수는 변하지 않음.
+
+- ```javascript
+  const a = 221;
+  a = 4;//TypeError: Assignment to constant variable
+  ```
+
+- **에러를 읽으려고 시도해야함!** --> 상수에는 대입을 할 수 없음.
+
+- 변수가 바뀌어도 된다면 let을 사용. 변수가 바뀌는 것을 허용
+
+- let만 이 값을 다른 값으로 바꿀 수 있고 const는 그렇지 않음.
+
+- **var** 은 variable
+
+  - var의 문제느 많지 않음.
+  - let 을 쓴 것처럼 var의 값을 바꿀 수 있음.
+  - 3년 전에는 var만 쓸수 있었음. const 와 let이 없었음
+  - 따라서 변하는 값은 let, 변하지 않는 값은 const에 저장하도록
+
+
+
+### #Data Types on JS
+
+- 변수를 선언할때는 기본적으로 const를 쓰도록. 너가 필요할 때까지 let을 사용하지마.
+
+  진짜 필요할때만 let을 사용하도록.
+
+  ```javascript
+  //String
+  const what = "Nicolas"
+  
+  //Boolean
+  const what = true;
+  
+  //Number
+  const what = 444;
+  
+  //Float
+  const what = 55.1;
+  ```
+
+  
+
+
+
+### #Oranizing Data with Arrays
+
+- 자바스크립트에서 어떻게 데이터를 정렬하는지.
+- Array/ Object
+- Array는 리스트처럼 데이터를 저장하는 것.
+
+- 변수명 규칙: Camel case - 낙타 등이 구불한거 처럼
+
+  - 항상 소문자로 시작하고 스페이스가 필요하면 다음 단어에 대문를 넣어주는 것.
+  - ex) dayOfWeek 
+
+- Array
+
+  ```javascript
+  //Array
+  const monday = "Mon"
+  const tue = "Tue"
+  const wed = "Wed"
+  const thu = "Thu"
+  const fri = "Fri"
+  
+  console.log(monday, tue, wed, thu, fri);
+  //효과적이지 않음 -> 하나로 묶을 수 있음
+  
+  const dayOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", true];
+  console.log(dayOfWeek);
+  console.log(dayOfWeek[1]);
+  ```
+
+  ```
+  Mon Tue Wed Thu Fri
+  [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', true ]
+  Tue
+  ```
+
+
+
+### #Organizing Data with Objects
+
+- Object 와 Array의 다른점은
+
+  Object에는 각 value에 이름을 줄 수 있다는 것.
+
+- ```javascript
+  const chaewonInfo = ["Chaewon", "24", true, "Seoul"];
+  //배열 효율적이지 못함 --> 어떤게 이름인지 모름
+  
+  const yooInfo = {
+    name: "Chaewon",
+    age:24,
+    gender:"Female",
+    isHandsome:true
+  }
+  
+  console.log(yooInfo);
+  console.log(yooInfo.name);
+  yooInfo.gender = "Male";
+  ```
+
+- 만약 DB에서 가져온 리스트 데이터라면, Array를 선택하고, 
+
+  만약 데이터를 합쳐서 만들어야 한다면 많은 사람들을 Array로 만들려면 chaewonInfo를 array로 해야 할 것임.
+
+  즉, 섞어서쓸 수 있음 --> Object를 Array에 넣을 수 있음.
+
+  ```javascript
+  const yooInfo = {
+    name: "Chaewon",
+    age:24,
+    gender:"Female",
+    isHandsome:true,
+    favMovies: ["Along the gods", "LOTR"],
+    favFood: [
+      {name:"Kimchi",
+       fatty: false},
+      {name:"burger",
+       fatty: true
+      }
+    ]
+  }
+  
+  console.log(yooInfo);
+  ```
+
+- JS가 말썽이어도 HTML/CSS와는 상관 없음 -> HTML/CSS제대로 작동함
 
 
 
