@@ -10,3 +10,11 @@ body{
   .clicked{
       color: #7f8c8d;
   }
+
+  .from{
+      display: none;
+  }
+
+  .showing{
+      display: block;
+  }
