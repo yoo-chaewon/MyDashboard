@@ -1,0 +1,285 @@
+## #3 Make your first JS App
+
+#### #Making a JS Clock part One
+
+- 문제를 나눠서 생각할 수 있도록!!
+
+  ```javascript
+  const clockContainer = document.querySelector(".js-clock"),
+      clockTitle = clockContainer.querySelector("h1");
+  
+  
+  function getTime(){
+      const date = new Date();
+      const minutes = date.getMinutes();
+      const hours = date.getHours();
+      const seconds = date.getSeconds();
+      clockTitle.innerText = `${hours}:${minutes}:${seconds}`;
+  
+  }
+  
+  function init(){
+      getTime();
+  }
+  
+  init();
+  ```
+
+  
+
+#### #Making a JS Clock part Two
+
+- setInterval()
+
+  첫번째 인자는 실행할 함수, 두번째 함수는 그 함수를 실행하고 싶은 시간(실행간격)
+
+  setInterval(fn, 1000)
+
+- ```javascript
+  const clockContainer = document.querySelector(".js-clock"),
+      clockTitle = clockContainer.querySelector("h1");
+  
+  
+  function getTime(){
+      const date = new Date();
+      const minutes = date.getMinutes();
+      const hours = date.getHours();
+      const seconds = date.getSeconds();
+  
+      clockTitle.innerText = `${
+          hours < 10 ? `0${hours}` : hours}:${
+          minutes < 10 ? `0${minutes}` : minutes}:${
+          seconds < 10 ? `0${seconds}` : seconds
+      }`
+  
+  }
+  
+  function init(){
+      getTime();
+      setInterval(getTime, 1000);
+  
+  
+  }
+  
+  init();
+  ```
+
+  
+
+#### #Saving the User Name part One
+
+- 그 사람의 컴퓨터에 저장하기
+
+- ```javascript
+  const form = document.querySelector(".js-form"),
+      input = form.querySelector("input");
+  ```
+
+  여러가지 방법이 있는데 하나는 쿼리 셀렉터, 이건 원하는 셀렉터를 다 가져와. 클래스 , css 방식으로.
+
+  클래스 태그 아이디..
+
+- 다른 방법은 쿼리 셀렉터  모든걸 가져옴. 쿼리 셀렉터는 찾은 첫번째것을 가져옴. 그러나 쿼리 셀렉터 올은 모든 것을 가져옴. 클래스 명에 따른 엘리먼트들을 가져오는데 이건 array를 줌. --> array 외부의 하나의 엘리먼트를 가져오는 게 귀찮아서 안씀
+
+  왜냐면 찾은 것이 유일하게 하나의 클래스명이라고 해도 array안에 넣을 것이기 때문에 귀찮은 과정
+
+- Local Storage: 작은 정보를 유저 컴퓨터에 저장하는 방법
+
+  set 하면 새로고침을 해도 로컬 스토리지에 그대로 있음.
+
+#### #Saving the User Name part Two
+
+- form을 제출(submit) ->user가 enter를 치면 알아챔
+
+- ```javascript
+      event.preventDefault();
+  //기본적인 event를 막아줌
+  //보통 이벤트가 발생하면 root에서 일어나고, form에서 일어남. 이게 올라가면서 다른 모든 것들이 event에 반응함. form을 제출하는 event가 발생하면 event가 계속 위로 올라가. document까지. doucment는 다른 곳으로 감. 왜냐하면 이벤트는 프로그램 되어진대로 다시 가기 때문에. 
+```
+  
+
+#### #Making a To Do List part One
+
+- greeting과 비슷함
+
+- hiding이랑 showing을 가지지 않는 다는 점만 다름.
+
+- ```javascript
+  //localStorage에서 온 리스트
+  function loadToDos(){
+      const toDos = localStorage.getItem(TODOS_LS);
+      if(toDos !== null){
+  
+      }
+  }
+  ```
+
+- querySelector -> HTML에서 필요한 것을 얻음
+
+  반대로 HTML에 필요한 뭔가를 생성하기 위해서는 document.createElement("ul")
+
+  ```javascript
+   function paintToDo(text) {
+       const li = document.createElement("li");
+   }
+  ```
+
+- appendChild
+
+  뭔가를 그의 father element안에 넣는 것
+
+  ```javascript
+  const toDoForm = document.querySelector(".js-toDoForm"),
+     toDoInput = toDoForm.querySelector("input"),
+     toDoList = document.querySelector(".js-toDoList");
+  
+   const TODOS_LS = "toDos";
+  
+   function paintToDo(text) {
+       const li = document.createElement("li");
+       const delBtn = document.createElement("button");
+       delBtn.innerText = "❌";
+       const span = document.createElement("span");
+       span.innerText = text;
+       li.appendChild(delBtn);
+       li.appendChild(span);
+       toDoList.appendChild(li);
+  
+   }
+  
+   function handleSubmit(event) {
+     event.preventDefault();
+     const currentValue = toDoInput.value;
+     paintToDo(currentValue);
+     toDoInput.value = "";
+   }
+  
+   function loadToDos() {
+     const toDos = localStorage.getItem(TODOS_LS);
+     if (toDos !== null) {
+     }
+   }
+  
+   function init() {
+     loadToDos();
+     toDoForm.addEventListener("submit", handleSubmit);
+   }
+  
+   init();
+  ```
+
+  
+
+#### #Making a To Do List part Two
+
+- local Storage에는 자바스크립트의 data를 저장할 수 없음
+
+  ```javascript
+  function saveToDos(){
+       localStorage.setItem(TODOS_LS, toDos);
+   }
+  //결과[object Object],[object Object],[object Object]
+  //이런식으로 저장됨.
+  ```
+
+  오직 string만 저장할 수 있음.
+
+  자바스크립트는 local Storage에 있는 모든 데이터를 string으로 저장하려고 하기 때문에.
+
+  그래서 object가 string에 되도록 만들어야 함. 그걸 위해서 아주 좋은 트릭인 JSON.stringfy를 쓸것임
+
+- JSON.stringfy는 자바스크립트 object를 string으로 바꿔줌
+
+  ```javascript
+       localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+  ```
+
+- JSON(JavaScript Object Notation)
+
+  데이터를 전달할 때 자바스크립트가 그걸 다룰 수 있도록 object로 바꿔주는 기능
+
+  그래서 자바스크립트의 object를 string으로 변환해주기도 하고 string을 object로 변환시켜 줄 수 있음
+
+  ```javascript
+   function loadToDos() {
+     const loadedToDos = localStorage.getItem(TODOS_LS);
+     if (loadedToDos !== null) {
+         console.log(loadedToDos);
+         const parsedToDos = JSON.parse(loadedToDos);
+         console.log(parsedToDos);
+  
+     }
+   }
+  ```
+
+  ```
+  //결과
+  [{"text":"ㅗ디ㅣㅐ","id":1},{"text":"dldjf","id":2},
+  
+  {"text":"hele","id":3}]
+  todo.js:46 
+  (3) [{…}, {…}, {…}]
+  0: {text: "ㅗ디ㅣㅐ", id: 1}
+  1: {text: "dldjf", id: 2}
+  2: {text: "hele", id: 3}
+  length: 3
+  __proto__: Array(0)
+  ```
+
+- 배열 forEach 함수
+
+  ```javascript
+  parsedToDos.forEach(function(toDo){
+             paintToDo(toDo.text);
+         });
+  ```
+
+
+
+#### #Making a To Do List part Three
+
+- local storage에서 to do하나를 지워야 하고, 그리고 저장해야 함.
+
+- 속해 있는 거 보고 싶을 때
+
+  ```javascript
+  console.dir(event.target)
+  ```
+
+- delete child element mdn
+
+  ​	Node.removechild();
+
+- filter는 array의 모든 아이템을 통해 함수를 실행하고 ture인 아이템들만 갖고 새로운 array를 만들어줌
+
+  ```javascript
+       const cleanToDos = toDos.filter(filterFn)
+  
+  
+  function filterFn(toDo){
+       return toDo.id === 1
+  
+  }
+  ```
+
+  cleanTodos와 filter가 하는 것은 filterFn이 체크된 아이템들의 array를 주는 것임.
+
+- filter/forEach 함수 중요
+
+  이것들이 list에 있는 모든 item을 위한 함수를 실행시킴
+
+  
+
+#### #Image Background
+
+
+
+#### #Getting the Weather part One(Geolocation)
+
+
+
+#### #Getting the weather par Two(API)
+
+
+
+#### #Conclusion
