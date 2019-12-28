@@ -12,9 +12,7 @@ function saveName(text){
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello ${text}`;
-    
-
+    greeting.innerText = `Hello! ${text}🤪`;
 }
 
 function handleSubmit(event){
@@ -29,22 +27,16 @@ function askForName(){
     form.addEventListener("submit", handleSubmit);
 }
 
-
 function loadName(){
     const currentUser = localStorage.getItem(USER_LS);
     if(currentUser === null){
         askForName();
     }else{
         paintGreeting(currentUser);
-
     }
-
 }
 
 function init(){
     loadName();
-
-
-    
 }
 init();
