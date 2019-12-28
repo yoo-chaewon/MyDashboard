@@ -272,7 +272,14 @@
 
 #### #Image Background
 
+- 만약 서버에서 이미지 다운 받는 것이라면
 
+  ```javascript
+      image.addEventListener("loadend",handleImgLoad);
+  //이거 사용하면 이미지 다 다운받아지는 시점알 수 있음.
+  ```
+
+  
 
 #### #Getting the Weather part One(Geolocation)
 
