@@ -1,5 +1,5 @@
-bocy{
-    background-color: #ecf0f1;
+body{
+    background-color: #2c3e50;
 }
 
 .btn{
@@ -7,7 +7,7 @@ bocy{
 }
 
 body{
-    color: #34495e;
+    color: white;
 }
   
 .clicked{
@@ -21,4 +21,23 @@ body{
 
 .showing{
     display: block;
+}
+
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+.bgImage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: fadeIn .5s linear;
 }
