@@ -374,6 +374,60 @@
 
 #### #Getting the weather par Two(API)
 
+- https://openweathermap.org/current
 
+- API(Application Programming Interface)는 다른 서버로부터 손쉽게 데이터를 가져올 수 있는 수단
+
+- 이런 웹사이트를 이용하면 (API를 제공하는) 해당 웹사이트를 통해 데이터를 얻을 수 있는데, 우리가 가져올 것은 데이터 뿐
+
+- 즉 이런 API는 특정 웹사이트로부터 데이터를 얻거나 컴퓨터끼리 소통하기 위해 고안된 것.
+
+- 어떻게 JavaScript를 이용해서 특정 URL을 호출하는가?
+
+  - Javascript는 웹사이트로 Request를 보내고 응답을 통해서 데이터를 얻을 수 있는데, 가져온 데이터를 refresh없이도 웹사이트에 적용시킬 수 있음
+
+- fetch()
+
+  - fetch()안에는 가져올 데이터가 들어가면 됨. 
+
+- API문서 보는 법 익히기
+
+  ```
+  //https://openweathermap.org/current#data
+  //화씨를 섭씨 단위로 사용하고 싶음
+  Units format
+  Description:
+  
+  Standard, metric, and imperial units are available.
+  
+  Parameters:
+  
+  units metric, imperial. When you do not use units parameter, format is Standard by default.
+  
+  Temperature is available in Fahrenheit, Celsius and Kelvin units.
+  
+  For temperature in Fahrenheit use units=imperial
+  For temperature in Celsius use units=metric
+  Temperature in Kelvin is used by default, no need to use units parameter in API call
+  List of all API parameters with units openweathermap.org/weather-data
+  
+  ```
+
+- 함수 then()
+
+  언제 호출할거냐면 데이터가 우리한테 넘어왔을 때. 왜냐하면 데이터가 들어오는데시간이 걸리기 때문에.
+
+  then이 하는 역할은 기본적으로 함수를 호출하는 것이지만 데이터가 완전히 다 들어온 다음에 호출함.
+
+  ```javascript
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`
+      ).then(function(json){
+          console.log(json);
+      });
+  
+  //이 경우 fetch()가 다 되어야 then()실행
+  ```
+
+- VSC 정렬 단축키 : Shift + Option + F
 
 #### #Conclusion
