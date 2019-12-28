@@ -372,7 +372,7 @@
 
   
 
-#### #Getting the weather par Two(API)
+#### #Getting the weather part Two(API)
 
 - https://openweathermap.org/current
 
@@ -431,3 +431,4 @@
 - VSC 정렬 단축키 : Shift + Option + F
 
 #### #Conclusion
+
