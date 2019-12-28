@@ -279,11 +279,98 @@
   //이거 사용하면 이미지 다 다운받아지는 시점알 수 있음.
   ```
 
+- ```javascript
+  const body = document.querySelector("body");
+  
+  const IMG_NUMBER = 5;
+  
+  function handleImgLoad(){
+      console.log("ImageLoaded");
+  }
+  
+  function paintImage(imgNumber){
+      const image = new Image();
+      image.src = `images/${imgNumber + 1}.jpg`;
+      image.classList.add("bgImage");
+      body.prepend(image);
+  
+  
+  }
+  
+  function genRandom(){
+      const number = Math.floor(Math.random() * IMG_NUMBER);
+      return number;
+  }
+  function init(){
+      const randomNumber = genRandom();
+      paintImage(randomNumber);
+  
+  
+  
+  }
+  
+  init();
+  ```
+
   
 
 #### #Getting the Weather part One(Geolocation)
 
+-  현재 위치 정보 읽는 방법
 
+  ```javascript
+  function askForCoords(){
+      navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
+  }
+  ```
+
+- ```javascript
+  const API_KEY = "92d535574f86e3834d553e34e15e9dba";
+  const COORDS = "coords";
+  
+  
+  function saveCoords(coordsObj){
+      localStorage.setItem(COORDS, JSON.stringify(coordsObj));
+  
+  }
+  
+  function handleGeoSucces(position){
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const coordsObj = {
+          latitude,
+          longitude
+      };
+  
+      saveCoords(coordsObj);
+  }
+  
+  function handleGeoError(){
+      console.log("Cant access geo location");
+  }
+  
+  function askForCoords(){
+      navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
+  }
+  
+  function loadCoords(){
+      const loadedCoords = localStorage.getItem(COORDS);
+      if(loadedCoords === null){
+          askForCoords();
+      }else{
+          //get Weather
+      }
+  }
+  
+  function init(){
+      loadCoords();
+  }
+  
+  
+  init();
+  ```
+
+  
 
 #### #Getting the weather par Two(API)
 
