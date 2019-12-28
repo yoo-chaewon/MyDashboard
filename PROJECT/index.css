@@ -1,15 +1,28 @@
+
+
 body{
     background-color: #2c3e50;
 }
 
 .btn{
     cursor: pointer;
+    background-color: #ffffff;
 }
 
 body{
     color: white;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+h1{
+    font-size: 190px;
+    margin-bottom: 0px;
 }
   
+p{
+    margin-top: 0px;
+}
 .clicked{
     color: #7f8c8d;
 }
@@ -21,6 +34,11 @@ body{
 
 .showing{
     display: block;
+}
+
+.js-greetings{
+    font-size: 90px;
+    padding: 0;
 }
 
 
@@ -40,4 +58,11 @@ body{
     height: 100%;
     z-index: -1;
     animation: fadeIn .5s linear;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
 }

@@ -12,7 +12,7 @@ function saveName(text){
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    greeting.innerText = `Hello! ${text}🤪`;
+    greeting.innerText = `Hello! ${text}😛`;
 }
 
 function handleSubmit(event){
