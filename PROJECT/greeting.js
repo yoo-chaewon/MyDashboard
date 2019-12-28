@@ -7,13 +7,13 @@ const USER_LS = "currentUser",
 
 function saveName(text){
     localStorage.setItem(USER_LS, text);
-
 }
 
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
     greeting.innerText = `Hello ${text}`;
+    
 
 }
 
@@ -22,7 +22,6 @@ function handleSubmit(event){
     const currentValue = input.value;
     paintGreeting(currentValue);
     saveName(currentValue);
-
 }
 
 function askForName(){
