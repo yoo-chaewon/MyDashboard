@@ -1,4 +1,6 @@
-const weather = document.querySelector(".js-weather");
+const weatherInfo = document.querySelector(".js-weather"),
+    weather = weatherInfo.querySelector("h4"),
+    curLocation = weatherInfo.querySelector("h5");
 const API_KEY = "92d535574f86e3834d553e34e15e9dba";
 const COORDS = "coords";
 
@@ -12,16 +14,41 @@ function getWeather(lat, lng) {
         .then(function (json) {
             const temperature = json.main.temp;
             const place = json.name;
-            weather.innerText = `${temperature} @ ${place}`;
+            const tweather = json.weather[0].description;
+            const weatherIcon = setWeatherIcon(tweather);
 
+            weather.innerText = `${weatherIcon} ${temperature}° \n`;
+            curLocation.innerText = `📍${place}`
         });
+}
 
+function setWeatherIcon(tweather) {
+    var curWeather = "";
+    if (tweather.includes("clear sky")) {
+        curWeather = "☀️";
+    } else if (tweather.includes("scattered cloud") || tweather.includes("broken clouds")) {
+        curWeather = "☁️";
+    } else if (tweather.includes("clouds")) {
+        curWeather = "🌤";
+    } else if (tweather.includes("shower rain")) {
+        curWeather = "🌧";
+    } else if (tweather.includes("rain")) {
+        curWeather = "🌦";
+    } else if (tweather.includes("thunderstorm")) {
+        curWeather = "🌩";
+    } else if (tweather.includes("snow")) {
+        curWeather = "☃️";
+    } else if (tweather.includes("mist")) {
+        curWeather = "🌫"
+    } else {
+        curWeather = "🌏";
+    }
+    return curWeather;
 }
 
 
 function saveCoords(coordsObj) {
     localStorage.setItem(COORDS, JSON.stringify(coordsObj));
-
 }
 
 function handleGeoSucces(position) {
@@ -57,6 +84,5 @@ function loadCoords() {
 function init() {
     loadCoords();
 }
-
 
 init();
