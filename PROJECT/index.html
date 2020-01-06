@@ -15,20 +15,27 @@
     <div class="js-clock">
         <h1 class="js-clock"></h1>
     </div>
-    <div class="js-greetings greetings">
-        <p>Hello! What's your Name?</p>
-        <p></p>
+    <!--  -->
+    <div class="middle-row">
+        <div class="js-greetings greetings">
+            <span>Your Name</span>
+            <form class="js-form from">
+                <input type="text" placeholder="Enter your Name" />
+            </form>
+
+        </div>
+
+        <div>
+            <form class="js-toDoForm">
+                <input type="text" placeholder="Enter your To Do" />
+            </form>
+            <ul class="js-toDoList">
+            </ul>
+        </div>
+
     </div>
 
-    <form class="js-form from">
-        <input type="text" />
-    </form>
-
-    <form class="js-toDoForm">
-        <input type="text" placeholder="Write a to do" />
-    </form>
-    <ul class="js-toDoList">
-    </ul>
+    <!--  -->
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>

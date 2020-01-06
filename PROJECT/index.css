@@ -6,7 +6,7 @@ body{
 }
 
 div{
-  display: inline;
+  display: block;
 }
 
 h1{
@@ -29,6 +29,32 @@ p{
   margin-top: 0px;
 }
 
+
+input{
+  border: none;
+  background-color: rgba(189, 189, 189, 0.3);
+  height: 50px;
+  width: 100%;
+  margin: 10px;
+  font-size: 85%;
+  color: white;
+  font-weight: bold;
+  
+  
+}
+
+input::placeholder {
+  color: white;
+  font-weight: bold;
+  opacity: 80%;
+}
+
+.middle-row{
+    text-align: left;
+    padding-right: 20%;
+    padding-left: 20%;
+}
+
 .btn{
     cursor: pointer;
     background-color: #ffffff;
@@ -42,6 +68,19 @@ p{
   margin-left: 30px;
   display: table-cell;
 }
+
+.js-form{
+  display: block;
+    width: 100%;
+    background: transparent;
+    font-family: Poppins-Medium;
+    font-size: 18px;
+    color: #333333;
+    line-height: 1.2;
+    align-items: flex-start;
+
+}
+
 
 .clicked{
     color: #7f8c8d;
@@ -57,8 +96,10 @@ p{
 }
 
 .js-greetings{
-    font-size: 90px;
+    font-size: 40px;
     padding: 0;
+    align-items: flex-start;
+    font-weight: bold;
 }
 
 
