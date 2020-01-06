@@ -29,7 +29,11 @@ p{
   margin-top: 0px;
 }
 
-
+li{
+  margin: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+}
 input{
   border: none;
   background-color: rgba(189, 189, 189, 0.3);
@@ -40,6 +44,11 @@ input{
   font-weight: bold;
   color: white;
   
+}
+
+button{
+  background-color: transparent;
+  border-color: transparent;
 }
 
 input::placeholder {
@@ -60,7 +69,6 @@ input:focus{
 
 .btn{
     cursor: pointer;
-    background-color: #ffffff;
 }
 
 .js-weather{
