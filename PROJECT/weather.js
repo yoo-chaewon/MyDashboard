@@ -39,9 +39,9 @@ function setWeatherIcon(tweather) {
         curWeather = "🌩";
     } else if (tweather.includes("snow")) {
         curWeather = "☃️";
-    } else if(tweather.includes("drizzle")){
+    } else if (tweather.includes("drizzle")) {
         curWeather = "💧"
-    }else {
+    } else {
         curWeather = "🌫"
     }
     return curWeather;

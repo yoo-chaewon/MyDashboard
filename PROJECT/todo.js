@@ -1,6 +1,6 @@
 var toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input"),
-    toDoList = document.querySelector(".js-toDoList");
+  toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = "toDos";
 let toDos = [];
@@ -64,7 +64,7 @@ function checkName() {
   const loadedName = localStorage.getItem(USER_LS);
   if (loadedName !== null) {
     toDoForm.classList.add(SHOWING_CN);
-  } 
+  }
 }
 
 function init() {
