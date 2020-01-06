@@ -19,8 +19,8 @@
 
 #### Preview
 
-![start.png](./ScreenImage/start.png?raw=true){: width="50%"}
+![start.png](./ScreenImage/start.png?raw=true)
 
-![getName.png](./ScreenImage/getName.png?raw=true){: width="50%"}
+![getName.png](./ScreenImage/getName.png?raw=true)
 
-![getToDo.png](./ScreenImage/getToDo.png?raw=true){: width="50%"}
+![getToDo.png](./ScreenImage/getToDo.png?raw=true)
