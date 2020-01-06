@@ -3,7 +3,7 @@ const clockContainer = document.querySelector(".js-clock"),
 
 const title = document.querySelector("title");
 
-function getTime(){
+function setTime(){
     const date = new Date();
     const minutes = date.getMinutes();
     const hours = date.getHours();
@@ -14,19 +14,21 @@ function getTime(){
         minutes < 10 ? `0${minutes}` : minutes}:${
         seconds < 10 ? `0${seconds}` : seconds
     }`
-    setTitle(hours);
+
+    title.innerHTML = `${setTitle(hours)}`
 }
 
 function setTitle(hours){
-    let titleText = "Good Night🌙";
-    if(hours > 5 && hours < 11) titleText = "Good Morning";
-    else if(hours >= 11 && hours < 15) titleText = "Good Afternoon";
-    else if(hours >= 15 && hours < 19) titleText = "Good Evening";
-    title.innerHTML = `${titleText}`;
+    let titleText = "🌙Good Night🌙";
+    if(hours >= 6 && hours < 12) titleText = "☀️Good Morning☀️";
+    else if(hours >= 12 && hours < 17) titleText = "🌈Good Afternoon🌈";
+    else if(hours >= 17 && hours < 21) titleText = "✨Good Evening✨";
+
+    return titleText;
 }
 
 function init(){
-    getTime();
+    setTime();
     setInterval(getTime, 1000);
 }
 
