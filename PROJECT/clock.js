@@ -26,7 +26,7 @@ function setTitle(hours) {
 
 function init() {
     setTime();
-    setInterval(getTime, 1000);
+    setInterval(setTime, 1000);
 }
 
 init();
