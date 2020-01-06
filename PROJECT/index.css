@@ -6,11 +6,11 @@ body{
 }
 
 div{
-  display: inline-block;
+  display: inline;
 }
 
 h1{
-  font-size: 190px;
+  font-size: 170px;
   margin-top: 50px;
   margin-bottom: 0px;
 }

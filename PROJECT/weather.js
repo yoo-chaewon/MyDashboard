@@ -15,6 +15,7 @@ function getWeather(lat, lng) {
             const temperature = json.main.temp;
             const place = json.name;
             const tweather = json.weather[0].description;
+            console.log(`API: https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`);
             const weatherIcon = setWeatherIcon(tweather);
 
             weather.innerText = `${weatherIcon} ${temperature}° \n`;
@@ -38,10 +39,10 @@ function setWeatherIcon(tweather) {
         curWeather = "🌩";
     } else if (tweather.includes("snow")) {
         curWeather = "☃️";
-    } else if (tweather.includes("mist")) {
+    } else if(tweather.includes("drizzle")){
+        curWeather = "💧"
+    }else {
         curWeather = "🌫"
-    } else {
-        curWeather = "🌏";
     }
     return curWeather;
 }
