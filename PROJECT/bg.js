@@ -1,6 +1,6 @@
 const body = document.querySelector("body");
 
-const IMG_NUMBER = 5;
+const IMG_NUMBER = 15;
 
 function handleImgLoad(){
     console.log("ImageLoaded");

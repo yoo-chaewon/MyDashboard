@@ -49,6 +49,11 @@ input{
 button{
   background-color: transparent;
   border-color: transparent;
+  font-size: 100%;
+}
+
+button:focus{
+  outline: none;
 }
 
 input::placeholder {
