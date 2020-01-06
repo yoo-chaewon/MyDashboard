@@ -13,7 +13,7 @@ function saveName(text){
 function paintGreeting(text){
     form.classList.remove(SHOWING_CN);
     greeting.classList.add(SHOWING_CN);
-    
+
     greeting.innerText = `Hello! ${text}😛`;
 }
 
@@ -22,20 +22,19 @@ function handleSubmit(event){
     const currentValue = input.value;
     paintGreeting(currentValue);
     saveName(currentValue);
+    toDoForm.classList.add(SHOWING_CN);
 }
 
 function askForName(){
     form.classList.add(SHOWING_CN);
     form.addEventListener("submit", handleSubmit);
-
 }
 
 function loadName(){
     const currentUser = localStorage.getItem(USER_LS);
     if(currentUser === null){
         askForName();
-        toDoForm.classList.add(SHOWING_CN);
-
+        // toDoForm.classList.add(SHOWING_CN);
     }else{
         paintGreeting(currentUser);
     }
