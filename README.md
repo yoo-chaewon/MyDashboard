@@ -2,7 +2,7 @@
 
 #### 소개
 
-**momentumdash** 이라는 구글 크롬 익스텐션을 보고 JavaScript를 사용하여 만들어 보았다.
+**`momentumdash`** 이라는 구글 크롬 익스텐션을 보고 JavaScript를 사용하여 만들어 보았다.
 
 
 
