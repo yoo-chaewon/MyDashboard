@@ -18,7 +18,7 @@
 
 
 #### 실행방법
-PROJECT파일에 index.html 실해
+PROJECT파일에 index.html 실행(크롬 최적화)
 
 
 
