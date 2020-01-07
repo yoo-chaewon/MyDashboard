@@ -17,6 +17,11 @@
 
 
 
+#### 실행방법
+PROJECT파일에 index.html 실해
+
+
+
 #### Preview
 
 ![start.png](./ScreenImage/start.png?raw=true)
